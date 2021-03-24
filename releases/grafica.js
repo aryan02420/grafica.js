@@ -73,20 +73,24 @@ GPoint.prototype.set = function() {
 	this.y = y;
 	this.label = label;
 	this.valid = this.isValidNumber(this.x) && this.isValidNumber(this.y);
+	return this;
 };
 
 GPoint.prototype.setX = function(x) {
 	this.x = x;
 	this.valid = this.isValidNumber(this.x) && this.isValidNumber(this.y);
+	return this;
 };
 
 GPoint.prototype.setY = function(y) {
 	this.y = y;
 	this.valid = this.isValidNumber(this.x) && this.isValidNumber(this.y);
+	return this;
 };
 
 GPoint.prototype.setLabel = function(label) {
 	this.label = label;
+	return this;
 };
 
 GPoint.prototype.setXY = function() {
@@ -108,6 +112,7 @@ GPoint.prototype.setXY = function() {
 	this.x = x;
 	this.y = y;
 	this.valid = this.isValidNumber(this.x) && this.isValidNumber(this.y);
+	return this;
 };
 
 GPoint.prototype.getX = function() {
@@ -164,6 +169,7 @@ GTitle.prototype.draw = function() {
 	// There seems to be a bug in p5.js
 	this.parent.textStyle(this.parent.NORMAL);
 	this.parent.pop();
+	return this;
 };
 
 GTitle.prototype.setDim = function() {
@@ -184,43 +190,53 @@ GTitle.prototype.setDim = function() {
 		this.dim[1] = yDim;
 		this.plotPos = this.relativePos * this.dim[0];
 	}
+
+	return this;
 };
 
 GTitle.prototype.setRelativePos = function(relativePos) {
 	this.relativePos = relativePos;
 	this.plotPos = this.relativePos * this.dim[0];
+	return this;
 };
 
 GTitle.prototype.setOffset = function(offset) {
 	this.offset = offset;
+	return this;
 };
 
 GTitle.prototype.setText = function(text) {
 	this.text = text;
+	return this;
 };
 
 GTitle.prototype.setTextAlignment = function(textAlignment) {
 	if (textAlignment === this.parent.CENTER || textAlignment === this.parent.LEFT || textAlignment === this.parent.RIGHT) {
 		this.textAlignment = textAlignment;
 	}
+	return this;
 };
 
 GTitle.prototype.setFontName = function(fontName) {
 	this.fontName = fontName;
+	return this;
 };
 
 GTitle.prototype.setFontColor = function(fontColor) {
 	this.fontColor = fontColor;
+	return this;
 };
 
 GTitle.prototype.setFontStyle = function(fontStyle) {
 	this.fontStyle = fontStyle;
+	return this;
 };
 
 GTitle.prototype.setFontSize = function(fontSize) {
 	if (fontSize > 0) {
 		this.fontSize = fontSize;
 	}
+	return this;
 };
 
 GTitle.prototype.setFontProperties = function(fontName, fontColor, fontSize) {
@@ -229,6 +245,7 @@ GTitle.prototype.setFontProperties = function(fontName, fontColor, fontSize) {
 		this.fontColor = fontColor;
 		this.fontSize = fontSize;
 	}
+	return this;
 };
 /*
  * Axis label class.
@@ -268,6 +285,7 @@ GAxisLabel.prototype.draw = function() {
 		this.drawAsRightLabel();
 		break;
 	}
+	return this;
 };
 
 GAxisLabel.prototype.drawAsXLabel = function() {
@@ -288,6 +306,7 @@ GAxisLabel.prototype.drawAsXLabel = function() {
 	}
 
 	this.parent.pop();
+	return this;
 };
 
 GAxisLabel.prototype.drawAsYLabel = function() {
@@ -308,6 +327,7 @@ GAxisLabel.prototype.drawAsYLabel = function() {
 	}
 
 	this.parent.pop();
+	return this;
 };
 
 GAxisLabel.prototype.drawAsTopLabel = function() {
@@ -328,6 +348,7 @@ GAxisLabel.prototype.drawAsTopLabel = function() {
 	}
 
 	this.parent.pop();
+	return this;
 };
 
 GAxisLabel.prototype.drawAsRightLabel = function() {
@@ -348,6 +369,7 @@ GAxisLabel.prototype.drawAsRightLabel = function() {
 	}
 
 	this.parent.pop();
+	return this;
 };
 
 GAxisLabel.prototype.setDim = function() {
@@ -368,42 +390,52 @@ GAxisLabel.prototype.setDim = function() {
 		this.dim[1] = yDim;
 		this.plotPos = (this.type === this.parent.BOTTOM || this.type === this.parent.TOP) ? this.relativePos * this.dim[0] : -this.relativePos * this.dim[1];
 	}
+
+	return this;
 };
 
 GAxisLabel.prototype.setRelativePos = function(relativePos) {
 	this.relativePos = relativePos;
 	this.plotPos = (this.type === this.parent.BOTTOM || this.type === this.parent.TOP) ? this.relativePos * this.dim[0] : -this.relativePos * this.dim[1];
+	return this;
 };
 
 GAxisLabel.prototype.setOffset = function(offset) {
 	this.offset = offset;
+	return this;
 };
 
 GAxisLabel.prototype.setRotate = function(rotate) {
 	this.rotate = rotate;
+	return this;
 };
 
 GAxisLabel.prototype.setText = function(text) {
 	this.text = text;
+	return this;
 };
 
 GAxisLabel.prototype.setTextAlignment = function(textAlignment) {
 	if (textAlignment === this.parent.CENTER || textAlignment === this.parent.LEFT || textAlignment === this.parent.RIGHT) {
 		this.textAlignment = textAlignment;
 	}
+	return this;
 };
 
 GAxisLabel.prototype.setFontName = function(fontName) {
 	this.fontName = fontName;
+	return this;
 };
 
 GAxisLabel.prototype.setFontColor = function(fontColor) {
 	this.fontColor = fontColor;
+	return this;
 };
 
 GAxisLabel.prototype.setFontSize = function(fontSize) {
 	if (fontSize > 0) {
 		this.fontSize = fontSize;
+		return this;
 	}
 };
 
@@ -413,6 +445,7 @@ GAxisLabel.prototype.setFontProperties = function(fontName, fontColor, fontSize)
 		this.fontColor = fontColor;
 		this.fontSize = fontSize;
 	}
+	return this;
 };
 /*
  * Axis class. 
@@ -500,6 +533,7 @@ GAxis.prototype.adaptSize = function(a, n) {
 	if (n < a.length) {
 		a.splice(n, Number.MAX_VALUE);
 	}
+	return this;
 };
 
 GAxis.prototype.updateTicks = function() {
@@ -508,6 +542,7 @@ GAxis.prototype.updateTicks = function() {
 	} else {
 		this.obtainLinearTicks();
 	}
+	return this;
 };
 
 GAxis.prototype.obtainLogarithmicTicks = function() {
@@ -625,6 +660,8 @@ GAxis.prototype.updatePlotTicks = function() {
 			this.plotTicks[i] = (this.ticks[i] - this.lim[0]) * scaleFactor;
 		}
 	}
+
+	return this;
 };
 
 GAxis.prototype.updateTicksInside = function() {
@@ -641,6 +678,8 @@ GAxis.prototype.updateTicksInside = function() {
 			this.ticksInside[i] = (-this.plotTicks[i] >= 0) && (-this.plotTicks[i] <= this.dim[1]);
 		}
 	}
+
+	return this;
 };
 
 GAxis.prototype.updateTickLabels = function() {
@@ -688,6 +727,8 @@ GAxis.prototype.updateTickLabels = function() {
 			}
 		}
 	}
+
+	return this;
 };
 
 GAxis.prototype.moveLim = function(newLim) {
@@ -764,6 +805,7 @@ GAxis.prototype.moveLim = function(newLim) {
 			this.updateTicksInside();
 		}
 	}
+	return this;
 };
 
 GAxis.prototype.draw = function() {
@@ -785,6 +827,7 @@ GAxis.prototype.draw = function() {
 	if (this.drawAxisLabel) {
 		this.lab.draw();
 	}
+	return this;
 };
 
 GAxis.prototype.drawAsXAxis = function() {
@@ -843,6 +886,8 @@ GAxis.prototype.drawAsXAxis = function() {
 
 		this.parent.pop();
 	}
+
+	return this;
 };
 
 GAxis.prototype.drawAsYAxis = function() {
@@ -901,6 +946,8 @@ GAxis.prototype.drawAsYAxis = function() {
 
 		this.parent.pop();
 	}
+
+	return this;
 };
 
 GAxis.prototype.drawAsTopAxis = function() {
@@ -961,6 +1008,8 @@ GAxis.prototype.drawAsTopAxis = function() {
 
 		this.parent.pop();
 	}
+
+	return this;
 };
 
 GAxis.prototype.drawAsRightAxis = function() {
@@ -1021,6 +1070,8 @@ GAxis.prototype.drawAsRightAxis = function() {
 
 		this.parent.pop();
 	}
+
+	return this;
 };
 
 GAxis.prototype.setDim = function() {
@@ -1042,6 +1093,8 @@ GAxis.prototype.setDim = function() {
 		this.updatePlotTicks();
 		this.lab.setDim(this.dim);
 	}
+
+	return this;
 };
 
 GAxis.prototype.setLim = function(lim) {
@@ -1062,6 +1115,7 @@ GAxis.prototype.setLim = function(lim) {
 			this.updateTicksInside();
 		}
 	}
+	return this;
 };
 
 GAxis.prototype.setLimAndLog = function(lim, log) {
@@ -1083,6 +1137,7 @@ GAxis.prototype.setLimAndLog = function(lim, log) {
 			this.updateTicksInside();
 		}
 	}
+	return this;
 };
 
 GAxis.prototype.setLog = function(log) {
@@ -1111,20 +1166,25 @@ GAxis.prototype.setLog = function(log) {
 		this.updatePlotTicks();
 		this.updateTicksInside();
 	}
+
+	return this;
 };
 
 GAxis.prototype.setOffset = function(offset) {
 	this.offset = offset;
+	return this;
 };
 
 GAxis.prototype.setLineColor = function(lineColor) {
 	this.lineColor = lineColor;
+	return this;
 };
 
 GAxis.prototype.setLineWidth = function(lineWidth) {
 	if (lineWidth > 0) {
 		this.lineWidth = lineWidth;
 	}
+	return this;
 };
 
 GAxis.prototype.setNTicks = function(nTicks) {
@@ -1140,6 +1200,7 @@ GAxis.prototype.setNTicks = function(nTicks) {
 			this.updateTickLabels();
 		}
 	}
+	return this;
 };
 
 GAxis.prototype.setTicksSeparation = function(ticksSeparation) {
@@ -1152,6 +1213,7 @@ GAxis.prototype.setTicksSeparation = function(ticksSeparation) {
 		this.updateTicksInside();
 		this.updateTickLabels();
 	}
+	return this;
 };
 
 GAxis.prototype.setTicks = function(ticks) {
@@ -1170,6 +1232,7 @@ GAxis.prototype.setTicks = function(ticks) {
 	this.updatePlotTicks();
 	this.updateTicksInside();
 	this.updateTickLabels();
+	return this;
 };
 
 GAxis.prototype.setTickLabels = function(tickLabels) {
@@ -1183,6 +1246,7 @@ GAxis.prototype.setTickLabels = function(tickLabels) {
 		// Set the tick precision to undefined
 		this.ticksPrecision = undefined;
 	}
+	return this;
 };
 
 GAxis.prototype.setFixedTicks = function(fixedTicks) {
@@ -1196,14 +1260,17 @@ GAxis.prototype.setFixedTicks = function(fixedTicks) {
 			this.updateTickLabels();
 		}
 	}
+	return this;
 };
 
 GAxis.prototype.setTickLength = function(tickLength) {
 	this.tickLength = tickLength;
+	return this;
 };
 
 GAxis.prototype.setSmallTickLength = function(smallTickLength) {
 	this.smallTickLength = smallTickLength;
+	return this;
 };
 
 GAxis.prototype.setExpTickLabels = function(expTickLabels) {
@@ -1211,40 +1278,49 @@ GAxis.prototype.setExpTickLabels = function(expTickLabels) {
 		this.expTickLabels = expTickLabels;
 		this.updateTickLabels();
 	}
+	return this;
 };
 
 GAxis.prototype.setRotateTickLabels = function(rotateTickLabels) {
 	this.rotateTickLabels = rotateTickLabels;
+	return this;
 };
 
 GAxis.prototype.setDrawTickLabels = function(drawTickLabels) {
 	this.drawTickLabels = drawTickLabels;
+	return this;
 };
 
 GAxis.prototype.setTickLabelOffset = function(tickLabelOffset) {
 	this.tickLabelOffset = tickLabelOffset;
+	return this;
 };
 
 GAxis.prototype.setDrawAxisLabel = function(drawAxisLabel) {
 	this.drawAxisLabel = drawAxisLabel;
+	return this;
 };
 
 GAxis.prototype.setAxisLabelText = function(axisLabelText) {
 	this.lab.setText(axisLabelText);
+	return this;
 };
 
 GAxis.prototype.setFontName = function(fontName) {
 	this.fontName = fontName;
+	return this;
 };
 
 GAxis.prototype.setFontColor = function(fontColor) {
 	this.fontColor = fontColor;
+	return this;
 };
 
 GAxis.prototype.setFontSize = function(fontSize) {
 	if (fontSize > 0) {
 		this.fontSize = fontSize;
 	}
+	return this;
 };
 
 GAxis.prototype.setFontProperties = function(fontName, fontColor, fontSize) {
@@ -1253,11 +1329,13 @@ GAxis.prototype.setFontProperties = function(fontName, fontColor, fontSize) {
 		this.fontColor = fontColor;
 		this.fontSize = fontSize;
 	}
+	return this;
 };
 
 GAxis.prototype.setAllFontProperties = function(fontName, fontColor, fontSize) {
 	this.setFontProperties(fontName, fontColor, fontSize);
 	this.lab.setFontProperties(fontName, fontColor, fontSize);
+	return this;
 };
 
 GAxis.prototype.getTicks = function() {
@@ -1394,6 +1472,8 @@ GHistogram.prototype.updateArrays = function() {
 		this.leftSides[nPoints - 1] = this.differences[nPoints - 2];
 		this.rightSides[nPoints - 1] = this.differences[nPoints - 2];
 	}
+
+	return this;
 };
 
 GHistogram.prototype.draw = function(plotBasePoint) {
@@ -1479,6 +1559,8 @@ GHistogram.prototype.draw = function(plotBasePoint) {
 			this.drawHistLabels();
 		}
 	}
+
+	return this;
 };
 
 GHistogram.prototype.drawHistLabels = function() {
@@ -1547,6 +1629,7 @@ GHistogram.prototype.drawHistLabels = function() {
 	}
 
 	this.parent.pop();
+	return this;
 };
 
 GHistogram.prototype.setType = function(type) {
@@ -1554,6 +1637,7 @@ GHistogram.prototype.setType = function(type) {
 		this.type = type;
 		this.updateArrays();
 	}
+	return this;
 };
 
 GHistogram.prototype.setDim = function() {
@@ -1574,6 +1658,8 @@ GHistogram.prototype.setDim = function() {
 		this.dim[1] = yDim;
 		this.updateArrays();
 	}
+
+	return this;
 };
 
 GHistogram.prototype.setPlotPoints = function(plotPoints) {
@@ -1601,6 +1687,7 @@ GHistogram.prototype.setPlotPoints = function(plotPoints) {
 	}
 
 	this.updateArrays();
+	return this;
 };
 
 GHistogram.prototype.setPlotPoint = function(index, plotPoint) {
@@ -1613,6 +1700,7 @@ GHistogram.prototype.setPlotPoint = function(index, plotPoint) {
 	}
 
 	this.updateArrays();
+	return this;
 };
 
 GHistogram.prototype.addPlotPoint = function() {
@@ -1625,6 +1713,7 @@ GHistogram.prototype.addPlotPoint = function() {
 	}
 
 	this.updateArrays();
+	return this;
 };
 
 GHistogram.prototype.removePlotPoint = function(index) {
@@ -1635,53 +1724,65 @@ GHistogram.prototype.removePlotPoint = function(index) {
 	}
 
 	this.updateArrays();
+	return this;
 };
 
 GHistogram.prototype.setSeparations = function(separations) {
 	this.separations = separations.slice();
 	this.updateArrays();
+	return this;
 };
 
 GHistogram.prototype.setBgColors = function(bgColors) {
 	this.bgColors = bgColors.slice();
+	return this;
 };
 
 GHistogram.prototype.setLineColors = function(lineColors) {
 	this.lineColors = lineColors.slice();
+	return this;
 };
 
 GHistogram.prototype.setLineWidths = function(lineWidths) {
 	this.lineWidths = lineWidths.slice();
+	return this;
 };
 
 GHistogram.prototype.setVisible = function(visible) {
 	this.visible = visible;
+	return this;
 };
 
 GHistogram.prototype.setLabelsOffset = function(labelsOffset) {
 	this.labelsOffset = labelsOffset;
+	return this;
 };
 
 GHistogram.prototype.setDrawLabels = function(drawLabels) {
 	this.drawLabels = drawLabels;
+	return this;
 };
 
 GHistogram.prototype.setRotateLabels = function(rotateLabels) {
 	this.rotateLabels = rotateLabels;
+	return this;
 };
 
 GHistogram.prototype.setFontName = function(fontName) {
 	this.fontName = fontName;
+	return this;
 };
 
 GHistogram.prototype.setFontColor = function(fontColor) {
 	this.fontColor = fontColor;
+	return this;
 };
 
 GHistogram.prototype.setFontSize = function(fontSize) {
 	if (fontSize > 0) {
 		this.fontSize = fontSize;
 	}
+	return this;
 };
 
 GHistogram.prototype.setFontProperties = function(fontName, fontColor, fontSize) {
@@ -1690,6 +1791,7 @@ GHistogram.prototype.setFontProperties = function(fontName, fontColor, fontSize)
 		this.fontColor = fontColor;
 		this.fontSize = fontSize;
 	}
+	return this;
 };
 /*
  * Layer class. A GLayer usually contains an array of points and a histogram
@@ -1885,6 +1987,7 @@ GLayer.prototype.updatePlotPoints = function() {
 			this.plotPoints[i].set(xPlot, yPlot, point.getLabel());
 		}
 	}
+	return this;
 };
 
 GLayer.prototype.xPlotToValue = function(xPlot) {
@@ -1938,6 +2041,8 @@ GLayer.prototype.updateInsideList = function() {
 	if (this.inside.length > nPoints) {
 		this.inside.splice(nPoints, Number.MAX_VALUE);
 	}
+
+	return this;
 };
 
 GLayer.prototype.getPointIndexAtPlotPos = function(xPlot, yPlot) {
@@ -2167,6 +2272,7 @@ GLayer.prototype.removePointFromCuts = function(cuts, nCuts, plotPoint, toleranc
 
 GLayer.prototype.startHistogram = function(histType) {
 	this.hist = new GHistogram(this.parent, histType, this.dim, this.plotPoints);
+	return this;
 };
 
 GLayer.prototype.drawPoints = function() {
@@ -2230,6 +2336,8 @@ GLayer.prototype.drawPoints = function() {
 	} else {
 		throw new Error("GLayer.drawPoints(): signature not supported");
 	}
+
+	return this;
 };
 
 GLayer.prototype.drawPoint = function() {
@@ -2268,6 +2376,8 @@ GLayer.prototype.drawPoint = function() {
 
 		this.parent.pop();
 	}
+
+	return this;
 };
 
 GLayer.prototype.drawLines = function() {
@@ -2298,6 +2408,7 @@ GLayer.prototype.drawLines = function() {
 	}
 
 	this.parent.pop();
+	return this;
 };
 
 GLayer.prototype.drawLine = function() {
@@ -2374,6 +2485,8 @@ GLayer.prototype.drawLine = function() {
 
 		this.parent.pop();
 	}
+
+	return this;
 };
 
 GLayer.prototype.drawHorizontalLine = function() {
@@ -2402,6 +2515,8 @@ GLayer.prototype.drawHorizontalLine = function() {
 		this.parent.line(0, yPlot, this.dim[0], yPlot);
 		this.parent.pop();
 	}
+
+	return this;
 };
 
 GLayer.prototype.drawVerticalLine = function() {
@@ -2430,6 +2545,8 @@ GLayer.prototype.drawVerticalLine = function() {
 		this.parent.line(xPlot, 0, xPlot, -this.dim[1]);
 		this.parent.pop();
 	}
+
+	return this;
 };
 
 GLayer.prototype.drawFilledContour = function(contourType, referenceValue) {
@@ -2458,6 +2575,8 @@ GLayer.prototype.drawFilledContour = function(contourType, referenceValue) {
 		this.parent.endShape(this.parent.CLOSE);
 		this.parent.pop();
 	}
+
+	return this;
 };
 
 GLayer.prototype.getHorizontalShape = function(referenceValue) {
@@ -2771,6 +2890,8 @@ GLayer.prototype.drawLabel = function(point) {
 		this.parent.text(point.getLabel(), xLabelPos, yLabelPos);
 		this.parent.pop();
 	}
+
+	return this;
 };
 
 GLayer.prototype.drawLabelAtPlotPos = function(xPlot, yPlot) {
@@ -2779,12 +2900,15 @@ GLayer.prototype.drawLabelAtPlotPos = function(xPlot, yPlot) {
 	if ( typeof point !== "undefined") {
 		this.drawLabel(point);
 	}
+
+	return this;
 };
 
 GLayer.prototype.drawHistogram = function() {
 	if ( typeof this.hist !== "undefined") {
 		this.hist.draw(this.valueToPlot(this.histBasePoint));
 	}
+	return this;
 };
 
 GLayer.prototype.drawPolygon = function(polygonPoints, polygonColor) {
@@ -2877,6 +3001,8 @@ GLayer.prototype.drawPolygon = function(polygonPoints, polygonColor) {
 			this.parent.pop();
 		}
 	}
+
+	return this;
 };
 
 GLayer.prototype.drawAnnotation = function(text, x, y, horAlign, verAlign) {
@@ -2906,6 +3032,8 @@ GLayer.prototype.drawAnnotation = function(text, x, y, horAlign, verAlign) {
 		this.parent.text(text, xPlot, yPlot);
 		this.parent.pop();
 	}
+
+	return this;
 };
 
 GLayer.prototype.setDim = function() {
@@ -2931,6 +3059,8 @@ GLayer.prototype.setDim = function() {
 			this.hist.setPlotPoints(this.plotPoints);
 		}
 	}
+
+	return this;
 };
 
 GLayer.prototype.setXLim = function() {
@@ -2961,6 +3091,8 @@ GLayer.prototype.setXLim = function() {
 			}
 		}
 	}
+
+	return this;
 };
 
 GLayer.prototype.setYLim = function() {
@@ -2991,6 +3123,8 @@ GLayer.prototype.setYLim = function() {
 			}
 		}
 	}
+	
+	return this;
 };
 
 GLayer.prototype.setXYLim = function() {
@@ -3033,6 +3167,8 @@ GLayer.prototype.setXYLim = function() {
 			this.hist.setPlotPoints(this.plotPoints);
 		}
 	}
+	
+	return this;
 };
 
 GLayer.prototype.setLimAndLog = function() {
@@ -3081,6 +3217,8 @@ GLayer.prototype.setLimAndLog = function() {
 			this.hist.setPlotPoints(this.plotPoints);
 		}
 	}
+	
+	return this;
 };
 
 GLayer.prototype.setXLog = function(xLog) {
@@ -3099,7 +3237,8 @@ GLayer.prototype.setXLog = function(xLog) {
 		if ( typeof this.hist !== "undefined") {
 			this.hist.setPlotPoints(this.plotPoints);
 		}
-	}
+	}	
+	return this;
 };
 
 GLayer.prototype.setYLog = function(yLog) {
@@ -3118,7 +3257,8 @@ GLayer.prototype.setYLog = function(yLog) {
 		if ( typeof this.hist !== "undefined") {
 			this.hist.setPlotPoints(this.plotPoints);
 		}
-	}
+	}	
+	return this;
 };
 
 GLayer.prototype.setPoints = function(points) {
@@ -3143,6 +3283,8 @@ GLayer.prototype.setPoints = function(points) {
 	if ( typeof this.hist !== "undefined") {
 		this.hist.setPlotPoints(this.plotPoints);
 	}
+	
+	return this;
 };
 
 GLayer.prototype.setPoint = function() {
@@ -3183,6 +3325,8 @@ GLayer.prototype.setPoint = function() {
 	if ( typeof this.hist !== "undefined") {
 		this.hist.setPlotPoint(index, this.plotPoints[index]);
 	}
+	
+	return this;
 };
 
 GLayer.prototype.addPoint = function() {
@@ -3211,6 +3355,8 @@ GLayer.prototype.addPoint = function() {
 	if ( typeof this.hist !== "undefined") {
 		this.hist.addPlotPoint(this.plotPoints[this.plotPoints.length - 1]);
 	}
+	
+	return this;
 };
 
 GLayer.prototype.addPoints = function(newPoints) {
@@ -3227,6 +3373,8 @@ GLayer.prototype.addPoints = function(newPoints) {
 	if ( typeof this.hist !== "undefined") {
 		this.hist.setPlotPoints(this.plotPoints);
 	}
+	
+	return this;
 };
 
 GLayer.prototype.addPointAtIndexPos = function() {
@@ -3260,6 +3408,8 @@ GLayer.prototype.addPointAtIndexPos = function() {
 			this.hist.setPlotPoints(this.plotPoints);
 		}
 	}
+	
+	return this;
 };
 
 GLayer.prototype.removePoint = function(index) {
@@ -3271,88 +3421,105 @@ GLayer.prototype.removePoint = function(index) {
 		if ( typeof this.hist !== "undefined") {
 			this.hist.removePlotPoint(index);
 		}
-	}
+	}	
+	return this;
 };
 
 GLayer.prototype.setInside = function(inside) {
 	if (inside.length === this.inside.length) {
 		this.inside = inside.slice();
 	}
+	return this;
 };
 
 GLayer.prototype.setPointColors = function(pointColors) {
 	if (pointColors.length > 0) {
 		this.pointColors = pointColors.slice();
 	}
+	return this;
 };
 
 GLayer.prototype.setPointColor = function(pointColor) {
 	this.pointColors = [pointColor];
+	return this;
 };
 
 GLayer.prototype.setPointSizes = function(pointSizes) {
 	if (pointSizes.length > 0) {
 		this.pointSizes = pointSizes.slice();
 	}
+	return this;
 };
 
 GLayer.prototype.setPointSize = function(pointSize) {
 	this.pointSizes = [pointSize];
+	return this;
 };
 
 GLayer.prototype.setLineColor = function(lineColor) {
 	this.lineColor = lineColor;
+	return this;
 };
 
 GLayer.prototype.setLineWidth = function(lineWidth) {
 	if (lineWidth > 0) {
 		this.lineWidth = lineWidth;
 	}
+	return this;
 };
 
 GLayer.prototype.setHistBasePoint = function(histBasePoint) {
 	this.histBasePoint.set(histBasePoint);
+	return this;
 };
 
 GLayer.prototype.setHistType = function(histType) {
 	if ( typeof this.hist !== "undefined") {
 		this.hist.setType(histType);
 	}
+	return this;
 };
 
 GLayer.prototype.setHistVisible = function(visible) {
 	if ( typeof this.hist !== "undefined") {
 		this.hist.setVisible(visible);
 	}
+	return this;
 };
 
 GLayer.prototype.setDrawHistLabels = function(drawHistLabels) {
 	if ( typeof this.hist !== "undefined") {
 		this.hist.setDrawLabels(drawHistLabels);
 	}
+	return this;
 };
 
 GLayer.prototype.setLabelBgColor = function(labelBgColor) {
 	this.labelBgColor = labelBgColor;
+	return this;
 };
 
 GLayer.prototype.setLabelSeparation = function(labelSeparation) {
 	this.labelSeparation[0] = labelSeparation[0];
 	this.labelSeparation[1] = labelSeparation[1];
+	return this;
 };
 
 GLayer.prototype.setFontName = function(fontName) {
 	this.fontName = fontName;
+	return this;
 };
 
 GLayer.prototype.setFontColor = function(fontColor) {
 	this.fontColor = fontColor;
+	return this;
 };
 
 GLayer.prototype.setFontSize = function(fontSize) {
 	if (fontSize > 0) {
 		this.fontSize = fontSize;
 	}
+	return this;
 };
 
 GLayer.prototype.setFontProperties = function(fontName, fontColor, fontSize) {
@@ -3361,6 +3528,7 @@ GLayer.prototype.setFontProperties = function(fontName, fontColor, fontSize) {
 		this.fontColor = fontColor;
 		this.fontSize = fontSize;
 	}
+	return this;
 };
 
 GLayer.prototype.setAllFontProperties = function(fontName, fontColor, fontSize) {
@@ -3369,6 +3537,7 @@ GLayer.prototype.setAllFontProperties = function(fontName, fontColor, fontSize) 
 	if ( typeof this.hist !== "undefined") {
 		this.hist.setFontProperties(fontName, fontColor, fontSize);
 	}
+	return this;
 };
 
 GLayer.prototype.getId = function() {
@@ -3584,6 +3753,7 @@ GPlot.prototype.addLayer = function() {
 	} else {
 		console.log("A layer with the same id exists. Please change the id and try to add it again.");
 	}
+	return this;
 };
 
 GPlot.prototype.removeLayer = function(id) {
@@ -3606,6 +3776,7 @@ GPlot.prototype.removeLayer = function(id) {
 	} else {
 		console.log("Couldn't find a layer in the plot with id = " + id);
 	}
+	return this;
 };
 
 GPlot.prototype.getPlotPosAt = function(xScreen, yScreen) {
@@ -3658,6 +3829,7 @@ GPlot.prototype.addPointAt = function() {
 
 	var value = this.getValueAt(xScreen, yScreen);
 	this.addPoint(value[0], value[1], "", layerId);
+	return this;
 };
 
 GPlot.prototype.removePointAt = function() {
@@ -3681,6 +3853,7 @@ GPlot.prototype.removePointAt = function() {
 	if (typeof pointIndex !== "undefined") {
 		this.removePoint(pointIndex, layerId);
 	}
+	return this;
 };
 
 GPlot.prototype.getValueAt = function(xScreen, yScreen) {
@@ -3745,6 +3918,8 @@ GPlot.prototype.updateLimits = function() {
 	for (var i = 0; i < this.layerList.length; i++) {
 		this.layerList[i].setXYLim(this.xLim, this.yLim);
 	}
+
+	return this;
 };
 
 GPlot.prototype.calculatePlotXLim = function() {
@@ -3952,6 +4127,7 @@ GPlot.prototype.moveHorizontalAxesLim = function(delta) {
 
 	// Update the plot limits
 	this.updateLimits();
+	return this;
 };
 
 GPlot.prototype.moveVerticalAxesLim = function(delta) {
@@ -3978,6 +4154,7 @@ GPlot.prototype.moveVerticalAxesLim = function(delta) {
 
 	// Update the plot limits
 	this.updateLimits();
+	return this;
 };
 
 GPlot.prototype.centerAndZoom = function(factor, xValue, yValue) {
@@ -4012,6 +4189,7 @@ GPlot.prototype.centerAndZoom = function(factor, xValue, yValue) {
 
 	// Update the plot limits (the layers, because the limits are fixed)
 	this.updateLimits();
+	return this;
 };
 
 GPlot.prototype.zoom = function() {
@@ -4064,6 +4242,7 @@ GPlot.prototype.zoom = function() {
 	} else {
 		throw new Error("GPlot.zoom(): signature not supported");
 	}
+	return this;
 };
 
 GPlot.prototype.shiftPlotPos = function(valuePlotPos, newPlotPos) {
@@ -4100,6 +4279,7 @@ GPlot.prototype.shiftPlotPos = function(valuePlotPos, newPlotPos) {
 
 	// Update the plot limits (the layers, because the limits are fixed)
 	this.updateLimits();
+	return this;
 };
 
 GPlot.prototype.align = function() {
@@ -4122,12 +4302,14 @@ GPlot.prototype.align = function() {
 	var valuePlotPos = this.mainLayer.valueToPlot(xValue, yValue);
 	var newPlotPos = this.getPlotPosAt(xScreen, yScreen);
 	this.shiftPlotPos(valuePlotPos, newPlotPos);
+	return this;
 };
 
 GPlot.prototype.center = function(xScreen, yScreen) {
 	var valuePlotPos = this.getPlotPosAt(xScreen, yScreen);
 	var newPlotPos = [ this.dim[0] / 2, -this.dim[1] / 2 ];
 	this.shiftPlotPos(valuePlotPos, newPlotPos);
+	return this;
 };
 
 GPlot.prototype.startHistograms = function(histType) {
@@ -4136,6 +4318,8 @@ GPlot.prototype.startHistograms = function(histType) {
 	for (var i = 0; i < this.layerList.length; i++) {
 		this.layerList[i].startHistogram(histType);
 	}
+
+	return this;
 };
 
 GPlot.prototype.defaultDraw = function() {
@@ -4148,6 +4332,7 @@ GPlot.prototype.defaultDraw = function() {
 	this.drawLines();
 	this.drawPoints();
 	this.endDraw();
+	return this;
 };
 
 GPlot.prototype.beginDraw = function() {
@@ -4166,6 +4351,7 @@ GPlot.prototype.drawBackground = function() {
 	this.parent.noStroke();
 	this.parent.rect(-this.mar[1], -this.mar[2] - this.dim[1], this.outerDim[0], this.outerDim[1]);
 	this.parent.pop();
+	return this;
 };
 
 GPlot.prototype.drawBox = function() {
@@ -4177,26 +4363,32 @@ GPlot.prototype.drawBox = function() {
 	this.parent.strokeCap(this.parent.SQUARE);
 	this.parent.rect(0, -this.dim[1], this.dim[0], this.dim[1]);
 	this.parent.pop();
+	return this;
 };
 
 GPlot.prototype.drawXAxis = function() {
 	this.xAxis.draw();
+	return this;
 };
 
 GPlot.prototype.drawYAxis = function() {
 	this.yAxis.draw();
+	return this;
 };
 
 GPlot.prototype.drawTopAxis = function() {
 	this.topAxis.draw();
+	return this;
 };
 
 GPlot.prototype.drawRightAxis = function() {
 	this.rightAxis.draw();
+	return this;
 };
 
 GPlot.prototype.drawTitle = function() {
 	this.title.draw();
+	return this;
 };
 
 GPlot.prototype.drawPoints = function() {
@@ -4217,6 +4409,8 @@ GPlot.prototype.drawPoints = function() {
 	} else {
 		throw new Error("GPlot.drawPoints(): signature not supported");
 	}
+
+	return this;
 };
 
 GPlot.prototype.drawPoint = function() {
@@ -4229,6 +4423,7 @@ GPlot.prototype.drawPoint = function() {
 	} else {
 		throw new Error("GPlot.drawPoint(): signature not supported");
 	}
+	return this;
 };
 
 GPlot.prototype.drawLines = function() {
@@ -4237,6 +4432,8 @@ GPlot.prototype.drawLines = function() {
 	for (var i = 0; i < this.layerList.length; i++) {
 		this.layerList[i].drawLines();
 	}
+
+	return this;
 };
 
 GPlot.prototype.drawLine = function() {
@@ -4247,6 +4444,7 @@ GPlot.prototype.drawLine = function() {
 	} else {
 		throw new Error("GPlot.drawLine(): signature not supported");
 	}
+	return this;
 };
 
 GPlot.prototype.drawHorizontalLine = function() {
@@ -4257,6 +4455,7 @@ GPlot.prototype.drawHorizontalLine = function() {
 	} else {
 		throw new Error("GPlot.drawHorizontalLine(): signature not supported");
 	}
+	return this;
 };
 
 GPlot.prototype.drawVerticalLine = function() {
@@ -4267,6 +4466,7 @@ GPlot.prototype.drawVerticalLine = function() {
 	} else {
 		throw new Error("GPlot.drawVerticalLine(): signature not supported");
 	}
+	return this;
 };
 
 GPlot.prototype.drawFilledContours = function(contourType, referenceValue) {
@@ -4275,10 +4475,13 @@ GPlot.prototype.drawFilledContours = function(contourType, referenceValue) {
 	for (var i = 0; i < this.layerList.length; i++) {
 		this.layerList[i].drawFilledContour(contourType, referenceValue);
 	}
+
+	return this;
 };
 
 GPlot.prototype.drawLabel = function(point) {
 	this.mainLayer.drawLabel(point);
+	return this;
 };
 
 GPlot.prototype.drawLabelsAt = function(xScreen, yScreen) {
@@ -4288,12 +4491,15 @@ GPlot.prototype.drawLabelsAt = function(xScreen, yScreen) {
 	for (var i = 0; i < this.layerList.length; i++) {
 		this.layerList[i].drawLabelAtPlotPos(plotPos[0], plotPos[1]);
 	}
+
+	return this;
 };
 
 GPlot.prototype.drawLabels = function() {
 	if (this.labelingIsActive && typeof this.mousePos !== "undefined") {
 		this.drawLabelsAt(this.mousePos[0], this.mousePos[1]);
 	}
+	return this;
 };
 
 GPlot.prototype.drawGridLines = function(gridType) {
@@ -4326,6 +4532,7 @@ GPlot.prototype.drawGridLines = function(gridType) {
 	}
 
 	this.parent.pop();
+	return this;
 };
 
 GPlot.prototype.drawHistograms = function() {
@@ -4334,14 +4541,18 @@ GPlot.prototype.drawHistograms = function() {
 	for (var i = 0; i < this.layerList.length; i++) {
 		this.layerList[i].drawHistogram();
 	}
+
+	return this;
 };
 
 GPlot.prototype.drawPolygon = function(polygonPoints, polygonColor) {
 	this.mainLayer.drawPolygon(polygonPoints, polygonColor);
+	return this;
 };
 
 GPlot.prototype.drawAnnotation = function(text, x, y, horAlign, verAlign) {
 	this.mainLayer.drawAnnotation(text, x, y, horAlign, verAlign);
+	return this;
 };
 
 GPlot.prototype.drawLegend = function(text, xRelativePos, yRelativePos) {
@@ -4367,6 +4578,7 @@ GPlot.prototype.drawLegend = function(text, xRelativePos, yRelativePos) {
 	}
 
 	this.parent.pop();
+	return this;
 };
 
 GPlot.prototype.setPos = function() {
@@ -4379,6 +4591,7 @@ GPlot.prototype.setPos = function() {
 	} else {
 		throw new Error("GPlot.setPos(): signature not supported");
 	}
+	return this;
 };
 
 GPlot.prototype.setOuterDim = function() {
@@ -4418,6 +4631,8 @@ GPlot.prototype.setOuterDim = function() {
 			}
 		}
 	}
+
+	return this;
 };
 
 GPlot.prototype.setMar = function() {
@@ -4448,6 +4663,8 @@ GPlot.prototype.setMar = function() {
 		this.outerDim[0] = xOuterDim;
 		this.outerDim[1] = yOuterDim;
 	}
+	
+	return this;
 };
 
 GPlot.prototype.setDim = function() {
@@ -4487,6 +4704,8 @@ GPlot.prototype.setDim = function() {
 			}
 		}
 	}
+
+	return this;
 };
 
 GPlot.prototype.setXLim = function() {
@@ -4522,6 +4741,8 @@ GPlot.prototype.setXLim = function() {
 			this.updateLimits();
 		}
 	}
+
+	return this;
 };
 
 GPlot.prototype.setYLim = function() {
@@ -4557,6 +4778,8 @@ GPlot.prototype.setYLim = function() {
 			this.updateLimits();
 		}
 	}
+
+	return this;
 };
 
 GPlot.prototype.setFixedXLim = function(fixedXLim) {
@@ -4564,6 +4787,7 @@ GPlot.prototype.setFixedXLim = function(fixedXLim) {
 
 	// Update the plot limits
 	this.updateLimits();
+	return this;
 };
 
 GPlot.prototype.setFixedYLim = function(fixedYLim) {
@@ -4571,6 +4795,7 @@ GPlot.prototype.setFixedYLim = function(fixedYLim) {
 
 	// Update the plot limits
 	this.updateLimits();
+	return this;
 };
 
 GPlot.prototype.setLogScale = function(logType) {
@@ -4628,6 +4853,8 @@ GPlot.prototype.setLogScale = function(logType) {
 			this.layerList[i].setLimAndLog(this.xLim, this.yLim, this.xLog, this.yLog);
 		}
 	}
+
+	return this;
 };
 
 GPlot.prototype.setInvertedXScale = function(invertedXScale) {
@@ -4648,10 +4875,12 @@ GPlot.prototype.setInvertedXScale = function(invertedXScale) {
 			this.layerList[i].setXLim(this.xLim);
 		}
 	}
+	return this;
 };
 
 GPlot.prototype.invertXScale = function() {
 	this.setInvertedXScale(!this.invertedXScale);
+	return this;
 };
 
 GPlot.prototype.setInvertedYScale = function(invertedYScale) {
@@ -4672,10 +4901,12 @@ GPlot.prototype.setInvertedYScale = function(invertedYScale) {
 			this.layerList[i].setYLim(this.yLim);
 		}
 	}
+	return this;
 };
 
 GPlot.prototype.invertYScale = function() {
 	this.setInvertedYScale(!this.invertedYScale);
+	return this;
 };
 
 GPlot.prototype.setIncludeAllLayersInLim = function(includeAllLayers) {
@@ -4685,6 +4916,7 @@ GPlot.prototype.setIncludeAllLayersInLim = function(includeAllLayers) {
 		// Update the plot limits
 		this.updateLimits();
 	}
+	return this;
 };
 
 GPlot.prototype.setExpandLimFactor = function(expandFactor) {
@@ -4694,34 +4926,41 @@ GPlot.prototype.setExpandLimFactor = function(expandFactor) {
 		// Update the plot limits
 		this.updateLimits();
 	}
+	return this;
 };
 
 GPlot.prototype.setBgColor = function(bgColor) {
 	this.bgColor = bgColor;
+	return this;
 };
 
 GPlot.prototype.setBoxBgColor = function(boxBgColor) {
 	this.boxBgColor = boxBgColor;
+	return this;
 };
 
 GPlot.prototype.setBoxLineColor = function(boxLineColor) {
 	this.boxLineColor = boxLineColor;
+	return this;
 };
 
 GPlot.prototype.setBoxLineWidth = function(boxLineWidth) {
 	if (boxLineWidth > 0) {
 		this.boxLineWidth = boxLineWidth;
 	}
+	return this;
 };
 
 GPlot.prototype.setGridLineColor = function(gridLineColor) {
 	this.gridLineColor = gridLineColor;
+	return this;
 };
 
 GPlot.prototype.setGridLineWidth = function(gridLineWidth) {
 	if (gridLineWidth > 0) {
 		this.gridLineWidth = gridLineWidth;
 	}
+	return this;
 };
 
 GPlot.prototype.setPoints = function() {
@@ -4734,6 +4973,7 @@ GPlot.prototype.setPoints = function() {
 	}
 
 	this.updateLimits();
+	return this;
 };
 
 GPlot.prototype.setPoint = function() {
@@ -4752,6 +4992,7 @@ GPlot.prototype.setPoint = function() {
 	}
 
 	this.updateLimits();
+	return this;
 };
 
 GPlot.prototype.addPoint = function() {
@@ -4770,6 +5011,7 @@ GPlot.prototype.addPoint = function() {
 	}
 
 	this.updateLimits();
+	return this;
 };
 
 GPlot.prototype.addPoints = function() {
@@ -4782,6 +5024,7 @@ GPlot.prototype.addPoints = function() {
 	}
 
 	this.updateLimits();
+	return this;
 };
 
 GPlot.prototype.removePoint = function() {
@@ -4794,6 +5037,7 @@ GPlot.prototype.removePoint = function() {
 	}
 
 	this.updateLimits();
+	return this;
 };
 
 GPlot.prototype.addPointAtIndexPos = function() {
@@ -4812,58 +5056,72 @@ GPlot.prototype.addPointAtIndexPos = function() {
 	}
 
 	this.updateLimits();
+	return this;
 };
 
 GPlot.prototype.setPointColors = function(pointColors) {
 	this.mainLayer.setPointColors(pointColors);
+	return this;
 };
 
 GPlot.prototype.setPointColor = function(pointColor) {
 	this.mainLayer.setPointColor(pointColor);
+	return this;
 };
 
 GPlot.prototype.setPointSizes = function(pointSizes) {
 	this.mainLayer.setPointSizes(pointSizes);
+	return this;
 };
 
 GPlot.prototype.setPointSize = function(pointSize) {
 	this.mainLayer.setPointSize(pointSize);
+	return this;
 };
 
 GPlot.prototype.setLineColor = function(lineColor) {
 	this.mainLayer.setLineColor(lineColor);
+	return this;
 };
 
 GPlot.prototype.setLineWidth = function(lineWidth) {
 	this.mainLayer.setLineWidth(lineWidth);
+	return this;
 };
 
 GPlot.prototype.setHistBasePoint = function(basePoint) {
 	this.mainLayer.setHistBasePoint(basePoint);
+	return this;
 };
 
 GPlot.prototype.setHistType = function(histType) {
 	this.mainLayer.setHistType(histType);
+	return this;
 };
 
 GPlot.prototype.setHistVisible = function(histVisible) {
 	this.mainLayer.setHistVisible(histVisible);
+	return this;
 };
 
 GPlot.prototype.setDrawHistLabels = function(drawHistLabels) {
 	this.mainLayer.setDrawHistLabels(drawHistLabels);
+	return this;
 };
 
 GPlot.prototype.setLabelBgColor = function(labelBgColor) {
 	this.mainLayer.setLabelBgColor(labelBgColor);
+	return this;
 };
 
 GPlot.prototype.setLabelSeparation = function(labelSeparation) {
 	this.mainLayer.setLabelSeparation(labelSeparation);
+	return this;
 };
 
 GPlot.prototype.setTitleText = function(text) {
 	this.title.setText(text);
+	return this;
 };
 
 GPlot.prototype.setAxesOffset = function(offset) {
@@ -4871,6 +5129,7 @@ GPlot.prototype.setAxesOffset = function(offset) {
 	this.topAxis.setOffset(offset);
 	this.yAxis.setOffset(offset);
 	this.rightAxis.setOffset(offset);
+	return this;
 };
 
 GPlot.prototype.setTicksLength = function(tickLength) {
@@ -4878,52 +5137,63 @@ GPlot.prototype.setTicksLength = function(tickLength) {
 	this.topAxis.setTickLength(tickLength);
 	this.yAxis.setTickLength(tickLength);
 	this.rightAxis.setTickLength(tickLength);
+	return this;
 };
 
 GPlot.prototype.setHorizontalAxesNTicks = function(nTicks) {
 	this.xAxis.setNTicks(nTicks);
 	this.topAxis.setNTicks(nTicks);
+	return this;
 };
 
 GPlot.prototype.setHorizontalAxesTicksSeparation = function(ticksSeparation) {
 	this.xAxis.setTicksSeparation(ticksSeparation);
 	this.topAxis.setTicksSeparation(ticksSeparation);
+	return this;
 };
 
 GPlot.prototype.setHorizontalAxesTicks = function(ticks) {
 	this.xAxis.setTicks(ticks);
 	this.topAxis.setTicks(ticks);
+	return this;
 };
 
 GPlot.prototype.setVerticalAxesNTicks = function(nTicks) {
 	this.yAxis.setNTicks(nTicks);
 	this.rightAxis.setNTicks(nTicks);
+	return this;
 };
 
 GPlot.prototype.setVerticalAxesTicksSeparation = function(ticksSeparation) {
 	this.yAxis.setTicksSeparation(ticksSeparation);
 	this.rightAxis.setTicksSeparation(ticksSeparation);
+	return this;
 };
 
 GPlot.prototype.setVerticalAxesTicks = function(ticks) {
 	this.yAxis.setTicks(ticks);
 	this.rightAxis.setTicks(ticks);
+	return this;
 };
 
 GPlot.prototype.setFontName = function(fontName) {
 	this.mainLayer.setFontName(fontName);
+	return this;
 };
 
 GPlot.prototype.setFontColor = function(fontColor) {
 	this.mainLayer.setFontColor(fontColor);
+	return this;
 };
 
 GPlot.prototype.setFontSize = function(fontSize) {
 	this.mainLayer.setFontSize(fontSize);
+	return this;
 };
 
 GPlot.prototype.setFontProperties = function(fontName, fontColor, fontSize) {
 	this.mainLayer.setFontProperties(fontName, fontColor, fontSize);
+	return this;
 };
 
 GPlot.prototype.setAllFontProperties = function(fontName, fontColor, fontSize) {
@@ -4938,6 +5208,7 @@ GPlot.prototype.setAllFontProperties = function(fontName, fontColor, fontSize) {
 	for (var i = 0; i < this.layerList.length; i++) {
 		this.layerList[i].setAllFontProperties(fontName, fontColor, fontSize);
 	}
+	return this;
 };
 
 GPlot.prototype.getPos = function() {
@@ -5115,10 +5386,13 @@ GPlot.prototype.activateZooming = function() {
 	if (decreaseKeyModifier === this.parent.SHIFT || decreaseKeyModifier === this.parent.CONTROL || decreaseKeyModifier === this.parent.ALT || decreaseKeyModifier === GPlot.NONE) {
 		this.decreaseZoomKeyModifier = decreaseKeyModifier;
 	}
+
+	return this;
 };
 
 GPlot.prototype.deactivateZooming = function() {
 	this.zoomingIsActive = false;
+	return this;
 };
 
 GPlot.prototype.activateCentering = function() {
@@ -5146,10 +5420,13 @@ GPlot.prototype.activateCentering = function() {
 	if (keyModifier === this.parent.SHIFT || keyModifier === this.parent.CONTROL || keyModifier === this.parent.ALT || keyModifier === GPlot.NONE) {
 		this.centeringKeyModifier = keyModifier;
 	}
+
+	return this;
 };
 
 GPlot.prototype.deactivateCentering = function() {
 	this.centeringIsActive = false;
+	return this;
 };
 
 GPlot.prototype.activatePanning = function() {
@@ -5177,11 +5454,14 @@ GPlot.prototype.activatePanning = function() {
 	if (keyModifier === this.parent.SHIFT || keyModifier === this.parent.CONTROL || keyModifier === this.parent.ALT || keyModifier === GPlot.NONE) {
 		this.panningKeyModifier = keyModifier;
 	}
+
+	return this;
 };
 
 GPlot.prototype.deactivatePanning = function() {
 	this.panningIsActive = false;
 	this.panningReferencePoint = undefined;
+	return this;
 };
 
 GPlot.prototype.activatePointLabels = function() {
@@ -5209,11 +5489,14 @@ GPlot.prototype.activatePointLabels = function() {
 	if (keyModifier === this.parent.SHIFT || keyModifier === this.parent.CONTROL || keyModifier === this.parent.ALT || keyModifier === GPlot.NONE) {
 		this.labelingKeyModifier = keyModifier;
 	}
+
+	return this;
 };
 
 GPlot.prototype.deactivatePointLabels = function() {
 	this.labelingIsActive = false;
 	this.mousePos = undefined;
+	return this;
 };
 
 GPlot.prototype.activateReset = function() {
@@ -5243,12 +5526,15 @@ GPlot.prototype.activateReset = function() {
 	if (keyModifier === this.parent.SHIFT || keyModifier === this.parent.CONTROL || keyModifier === this.parent.ALT || keyModifier === GPlot.NONE) {
 		this.resetKeyModifier = keyModifier;
 	}
+
+	return this;
 };
 
 GPlot.prototype.deactivateReset = function() {
 	this.resetIsActive = false;
 	this.xLimReset = undefined;
 	this.yLimReset = undefined;
+	return this;
 };
 
 GPlot.prototype.getButton = function(event) {
@@ -5288,6 +5574,7 @@ GPlot.prototype.saveResetLimits = function() {
 		this.xLimReset = this.xLim.slice();
 		this.yLimReset = this.yLim.slice();
 	}
+	return this;
 };
 
 GPlot.prototype.clickEvent = function(event) {

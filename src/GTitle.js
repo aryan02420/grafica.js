@@ -33,6 +33,7 @@ GTitle.prototype.draw = function() {
 	// There seems to be a bug in p5.js
 	this.parent.textStyle(this.parent.NORMAL);
 	this.parent.pop();
+	return this;
 };
 
 GTitle.prototype.setDim = function() {
@@ -53,43 +54,53 @@ GTitle.prototype.setDim = function() {
 		this.dim[1] = yDim;
 		this.plotPos = this.relativePos * this.dim[0];
 	}
+
+	return this;
 };
 
 GTitle.prototype.setRelativePos = function(relativePos) {
 	this.relativePos = relativePos;
 	this.plotPos = this.relativePos * this.dim[0];
+	return this;
 };
 
 GTitle.prototype.setOffset = function(offset) {
 	this.offset = offset;
+	return this;
 };
 
 GTitle.prototype.setText = function(text) {
 	this.text = text;
+	return this;
 };
 
 GTitle.prototype.setTextAlignment = function(textAlignment) {
 	if (textAlignment === this.parent.CENTER || textAlignment === this.parent.LEFT || textAlignment === this.parent.RIGHT) {
 		this.textAlignment = textAlignment;
 	}
+	return this;
 };
 
 GTitle.prototype.setFontName = function(fontName) {
 	this.fontName = fontName;
+	return this;
 };
 
 GTitle.prototype.setFontColor = function(fontColor) {
 	this.fontColor = fontColor;
+	return this;
 };
 
 GTitle.prototype.setFontStyle = function(fontStyle) {
 	this.fontStyle = fontStyle;
+	return this;
 };
 
 GTitle.prototype.setFontSize = function(fontSize) {
 	if (fontSize > 0) {
 		this.fontSize = fontSize;
 	}
+	return this;
 };
 
 GTitle.prototype.setFontProperties = function(fontName, fontColor, fontSize) {
@@ -98,4 +109,5 @@ GTitle.prototype.setFontProperties = function(fontName, fontColor, fontSize) {
 		this.fontColor = fontColor;
 		this.fontSize = fontSize;
 	}
+	return this;
 };

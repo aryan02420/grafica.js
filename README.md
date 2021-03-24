@@ -4,6 +4,10 @@ grafica.js is a simple and configurable plotting library for [p5.js](http://p5js
 version of the [grafica](https://github.com/jagracar/grafica) Processing library.
 With it you can easily create 2D plots that will enjoy the full interactive capabilities of Processing in the web. 
 
+## Additions in this fork
+
+ - Method Chaining
+
 
 ## Main features
 

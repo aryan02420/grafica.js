@@ -73,20 +73,24 @@ GPoint.prototype.set = function() {
 	this.y = y;
 	this.label = label;
 	this.valid = this.isValidNumber(this.x) && this.isValidNumber(this.y);
+	return this;
 };
 
 GPoint.prototype.setX = function(x) {
 	this.x = x;
 	this.valid = this.isValidNumber(this.x) && this.isValidNumber(this.y);
+	return this;
 };
 
 GPoint.prototype.setY = function(y) {
 	this.y = y;
 	this.valid = this.isValidNumber(this.x) && this.isValidNumber(this.y);
+	return this;
 };
 
 GPoint.prototype.setLabel = function(label) {
 	this.label = label;
+	return this;
 };
 
 GPoint.prototype.setXY = function() {
@@ -108,6 +112,7 @@ GPoint.prototype.setXY = function() {
 	this.x = x;
 	this.y = y;
 	this.valid = this.isValidNumber(this.x) && this.isValidNumber(this.y);
+	return this;
 };
 
 GPoint.prototype.getX = function() {

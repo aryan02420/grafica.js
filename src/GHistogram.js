@@ -84,6 +84,8 @@ GHistogram.prototype.updateArrays = function() {
 		this.leftSides[nPoints - 1] = this.differences[nPoints - 2];
 		this.rightSides[nPoints - 1] = this.differences[nPoints - 2];
 	}
+
+	return this;
 };
 
 GHistogram.prototype.draw = function(plotBasePoint) {
@@ -169,6 +171,8 @@ GHistogram.prototype.draw = function(plotBasePoint) {
 			this.drawHistLabels();
 		}
 	}
+
+	return this;
 };
 
 GHistogram.prototype.drawHistLabels = function() {
@@ -237,6 +241,7 @@ GHistogram.prototype.drawHistLabels = function() {
 	}
 
 	this.parent.pop();
+	return this;
 };
 
 GHistogram.prototype.setType = function(type) {
@@ -244,6 +249,7 @@ GHistogram.prototype.setType = function(type) {
 		this.type = type;
 		this.updateArrays();
 	}
+	return this;
 };
 
 GHistogram.prototype.setDim = function() {
@@ -264,6 +270,8 @@ GHistogram.prototype.setDim = function() {
 		this.dim[1] = yDim;
 		this.updateArrays();
 	}
+
+	return this;
 };
 
 GHistogram.prototype.setPlotPoints = function(plotPoints) {
@@ -291,6 +299,7 @@ GHistogram.prototype.setPlotPoints = function(plotPoints) {
 	}
 
 	this.updateArrays();
+	return this;
 };
 
 GHistogram.prototype.setPlotPoint = function(index, plotPoint) {
@@ -303,6 +312,7 @@ GHistogram.prototype.setPlotPoint = function(index, plotPoint) {
 	}
 
 	this.updateArrays();
+	return this;
 };
 
 GHistogram.prototype.addPlotPoint = function() {
@@ -315,6 +325,7 @@ GHistogram.prototype.addPlotPoint = function() {
 	}
 
 	this.updateArrays();
+	return this;
 };
 
 GHistogram.prototype.removePlotPoint = function(index) {
@@ -325,53 +336,65 @@ GHistogram.prototype.removePlotPoint = function(index) {
 	}
 
 	this.updateArrays();
+	return this;
 };
 
 GHistogram.prototype.setSeparations = function(separations) {
 	this.separations = separations.slice();
 	this.updateArrays();
+	return this;
 };
 
 GHistogram.prototype.setBgColors = function(bgColors) {
 	this.bgColors = bgColors.slice();
+	return this;
 };
 
 GHistogram.prototype.setLineColors = function(lineColors) {
 	this.lineColors = lineColors.slice();
+	return this;
 };
 
 GHistogram.prototype.setLineWidths = function(lineWidths) {
 	this.lineWidths = lineWidths.slice();
+	return this;
 };
 
 GHistogram.prototype.setVisible = function(visible) {
 	this.visible = visible;
+	return this;
 };
 
 GHistogram.prototype.setLabelsOffset = function(labelsOffset) {
 	this.labelsOffset = labelsOffset;
+	return this;
 };
 
 GHistogram.prototype.setDrawLabels = function(drawLabels) {
 	this.drawLabels = drawLabels;
+	return this;
 };
 
 GHistogram.prototype.setRotateLabels = function(rotateLabels) {
 	this.rotateLabels = rotateLabels;
+	return this;
 };
 
 GHistogram.prototype.setFontName = function(fontName) {
 	this.fontName = fontName;
+	return this;
 };
 
 GHistogram.prototype.setFontColor = function(fontColor) {
 	this.fontColor = fontColor;
+	return this;
 };
 
 GHistogram.prototype.setFontSize = function(fontSize) {
 	if (fontSize > 0) {
 		this.fontSize = fontSize;
 	}
+	return this;
 };
 
 GHistogram.prototype.setFontProperties = function(fontName, fontColor, fontSize) {
@@ -380,4 +403,5 @@ GHistogram.prototype.setFontProperties = function(fontName, fontColor, fontSize)
 		this.fontColor = fontColor;
 		this.fontSize = fontSize;
 	}
+	return this;
 };

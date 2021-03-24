@@ -36,6 +36,7 @@ GAxisLabel.prototype.draw = function() {
 		this.drawAsRightLabel();
 		break;
 	}
+	return this;
 };
 
 GAxisLabel.prototype.drawAsXLabel = function() {
@@ -56,6 +57,7 @@ GAxisLabel.prototype.drawAsXLabel = function() {
 	}
 
 	this.parent.pop();
+	return this;
 };
 
 GAxisLabel.prototype.drawAsYLabel = function() {
@@ -76,6 +78,7 @@ GAxisLabel.prototype.drawAsYLabel = function() {
 	}
 
 	this.parent.pop();
+	return this;
 };
 
 GAxisLabel.prototype.drawAsTopLabel = function() {
@@ -96,6 +99,7 @@ GAxisLabel.prototype.drawAsTopLabel = function() {
 	}
 
 	this.parent.pop();
+	return this;
 };
 
 GAxisLabel.prototype.drawAsRightLabel = function() {
@@ -116,6 +120,7 @@ GAxisLabel.prototype.drawAsRightLabel = function() {
 	}
 
 	this.parent.pop();
+	return this;
 };
 
 GAxisLabel.prototype.setDim = function() {
@@ -136,42 +141,52 @@ GAxisLabel.prototype.setDim = function() {
 		this.dim[1] = yDim;
 		this.plotPos = (this.type === this.parent.BOTTOM || this.type === this.parent.TOP) ? this.relativePos * this.dim[0] : -this.relativePos * this.dim[1];
 	}
+
+	return this;
 };
 
 GAxisLabel.prototype.setRelativePos = function(relativePos) {
 	this.relativePos = relativePos;
 	this.plotPos = (this.type === this.parent.BOTTOM || this.type === this.parent.TOP) ? this.relativePos * this.dim[0] : -this.relativePos * this.dim[1];
+	return this;
 };
 
 GAxisLabel.prototype.setOffset = function(offset) {
 	this.offset = offset;
+	return this;
 };
 
 GAxisLabel.prototype.setRotate = function(rotate) {
 	this.rotate = rotate;
+	return this;
 };
 
 GAxisLabel.prototype.setText = function(text) {
 	this.text = text;
+	return this;
 };
 
 GAxisLabel.prototype.setTextAlignment = function(textAlignment) {
 	if (textAlignment === this.parent.CENTER || textAlignment === this.parent.LEFT || textAlignment === this.parent.RIGHT) {
 		this.textAlignment = textAlignment;
 	}
+	return this;
 };
 
 GAxisLabel.prototype.setFontName = function(fontName) {
 	this.fontName = fontName;
+	return this;
 };
 
 GAxisLabel.prototype.setFontColor = function(fontColor) {
 	this.fontColor = fontColor;
+	return this;
 };
 
 GAxisLabel.prototype.setFontSize = function(fontSize) {
 	if (fontSize > 0) {
 		this.fontSize = fontSize;
+		return this;
 	}
 };
 
@@ -181,4 +196,5 @@ GAxisLabel.prototype.setFontProperties = function(fontName, fontColor, fontSize)
 		this.fontColor = fontColor;
 		this.fontSize = fontSize;
 	}
+	return this;
 };

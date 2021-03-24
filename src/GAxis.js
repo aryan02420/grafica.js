@@ -84,6 +84,7 @@ GAxis.prototype.adaptSize = function(a, n) {
 	if (n < a.length) {
 		a.splice(n, Number.MAX_VALUE);
 	}
+	return this;
 };
 
 GAxis.prototype.updateTicks = function() {
@@ -92,6 +93,7 @@ GAxis.prototype.updateTicks = function() {
 	} else {
 		this.obtainLinearTicks();
 	}
+	return this;
 };
 
 GAxis.prototype.obtainLogarithmicTicks = function() {
@@ -209,6 +211,8 @@ GAxis.prototype.updatePlotTicks = function() {
 			this.plotTicks[i] = (this.ticks[i] - this.lim[0]) * scaleFactor;
 		}
 	}
+
+	return this;
 };
 
 GAxis.prototype.updateTicksInside = function() {
@@ -225,6 +229,8 @@ GAxis.prototype.updateTicksInside = function() {
 			this.ticksInside[i] = (-this.plotTicks[i] >= 0) && (-this.plotTicks[i] <= this.dim[1]);
 		}
 	}
+
+	return this;
 };
 
 GAxis.prototype.updateTickLabels = function() {
@@ -272,6 +278,8 @@ GAxis.prototype.updateTickLabels = function() {
 			}
 		}
 	}
+
+	return this;
 };
 
 GAxis.prototype.moveLim = function(newLim) {
@@ -348,6 +356,7 @@ GAxis.prototype.moveLim = function(newLim) {
 			this.updateTicksInside();
 		}
 	}
+	return this;
 };
 
 GAxis.prototype.draw = function() {
@@ -369,6 +378,7 @@ GAxis.prototype.draw = function() {
 	if (this.drawAxisLabel) {
 		this.lab.draw();
 	}
+	return this;
 };
 
 GAxis.prototype.drawAsXAxis = function() {
@@ -427,6 +437,8 @@ GAxis.prototype.drawAsXAxis = function() {
 
 		this.parent.pop();
 	}
+
+	return this;
 };
 
 GAxis.prototype.drawAsYAxis = function() {
@@ -485,6 +497,8 @@ GAxis.prototype.drawAsYAxis = function() {
 
 		this.parent.pop();
 	}
+
+	return this;
 };
 
 GAxis.prototype.drawAsTopAxis = function() {
@@ -545,6 +559,8 @@ GAxis.prototype.drawAsTopAxis = function() {
 
 		this.parent.pop();
 	}
+
+	return this;
 };
 
 GAxis.prototype.drawAsRightAxis = function() {
@@ -605,6 +621,8 @@ GAxis.prototype.drawAsRightAxis = function() {
 
 		this.parent.pop();
 	}
+
+	return this;
 };
 
 GAxis.prototype.setDim = function() {
@@ -626,6 +644,8 @@ GAxis.prototype.setDim = function() {
 		this.updatePlotTicks();
 		this.lab.setDim(this.dim);
 	}
+
+	return this;
 };
 
 GAxis.prototype.setLim = function(lim) {
@@ -646,6 +666,7 @@ GAxis.prototype.setLim = function(lim) {
 			this.updateTicksInside();
 		}
 	}
+	return this;
 };
 
 GAxis.prototype.setLimAndLog = function(lim, log) {
@@ -667,6 +688,7 @@ GAxis.prototype.setLimAndLog = function(lim, log) {
 			this.updateTicksInside();
 		}
 	}
+	return this;
 };
 
 GAxis.prototype.setLog = function(log) {
@@ -695,20 +717,25 @@ GAxis.prototype.setLog = function(log) {
 		this.updatePlotTicks();
 		this.updateTicksInside();
 	}
+
+	return this;
 };
 
 GAxis.prototype.setOffset = function(offset) {
 	this.offset = offset;
+	return this;
 };
 
 GAxis.prototype.setLineColor = function(lineColor) {
 	this.lineColor = lineColor;
+	return this;
 };
 
 GAxis.prototype.setLineWidth = function(lineWidth) {
 	if (lineWidth > 0) {
 		this.lineWidth = lineWidth;
 	}
+	return this;
 };
 
 GAxis.prototype.setNTicks = function(nTicks) {
@@ -724,6 +751,7 @@ GAxis.prototype.setNTicks = function(nTicks) {
 			this.updateTickLabels();
 		}
 	}
+	return this;
 };
 
 GAxis.prototype.setTicksSeparation = function(ticksSeparation) {
@@ -736,6 +764,7 @@ GAxis.prototype.setTicksSeparation = function(ticksSeparation) {
 		this.updateTicksInside();
 		this.updateTickLabels();
 	}
+	return this;
 };
 
 GAxis.prototype.setTicks = function(ticks) {
@@ -754,6 +783,7 @@ GAxis.prototype.setTicks = function(ticks) {
 	this.updatePlotTicks();
 	this.updateTicksInside();
 	this.updateTickLabels();
+	return this;
 };
 
 GAxis.prototype.setTickLabels = function(tickLabels) {
@@ -767,6 +797,7 @@ GAxis.prototype.setTickLabels = function(tickLabels) {
 		// Set the tick precision to undefined
 		this.ticksPrecision = undefined;
 	}
+	return this;
 };
 
 GAxis.prototype.setFixedTicks = function(fixedTicks) {
@@ -780,14 +811,17 @@ GAxis.prototype.setFixedTicks = function(fixedTicks) {
 			this.updateTickLabels();
 		}
 	}
+	return this;
 };
 
 GAxis.prototype.setTickLength = function(tickLength) {
 	this.tickLength = tickLength;
+	return this;
 };
 
 GAxis.prototype.setSmallTickLength = function(smallTickLength) {
 	this.smallTickLength = smallTickLength;
+	return this;
 };
 
 GAxis.prototype.setExpTickLabels = function(expTickLabels) {
@@ -795,40 +829,49 @@ GAxis.prototype.setExpTickLabels = function(expTickLabels) {
 		this.expTickLabels = expTickLabels;
 		this.updateTickLabels();
 	}
+	return this;
 };
 
 GAxis.prototype.setRotateTickLabels = function(rotateTickLabels) {
 	this.rotateTickLabels = rotateTickLabels;
+	return this;
 };
 
 GAxis.prototype.setDrawTickLabels = function(drawTickLabels) {
 	this.drawTickLabels = drawTickLabels;
+	return this;
 };
 
 GAxis.prototype.setTickLabelOffset = function(tickLabelOffset) {
 	this.tickLabelOffset = tickLabelOffset;
+	return this;
 };
 
 GAxis.prototype.setDrawAxisLabel = function(drawAxisLabel) {
 	this.drawAxisLabel = drawAxisLabel;
+	return this;
 };
 
 GAxis.prototype.setAxisLabelText = function(axisLabelText) {
 	this.lab.setText(axisLabelText);
+	return this;
 };
 
 GAxis.prototype.setFontName = function(fontName) {
 	this.fontName = fontName;
+	return this;
 };
 
 GAxis.prototype.setFontColor = function(fontColor) {
 	this.fontColor = fontColor;
+	return this;
 };
 
 GAxis.prototype.setFontSize = function(fontSize) {
 	if (fontSize > 0) {
 		this.fontSize = fontSize;
 	}
+	return this;
 };
 
 GAxis.prototype.setFontProperties = function(fontName, fontColor, fontSize) {
@@ -837,11 +880,13 @@ GAxis.prototype.setFontProperties = function(fontName, fontColor, fontSize) {
 		this.fontColor = fontColor;
 		this.fontSize = fontSize;
 	}
+	return this;
 };
 
 GAxis.prototype.setAllFontProperties = function(fontName, fontColor, fontSize) {
 	this.setFontProperties(fontName, fontColor, fontSize);
 	this.lab.setFontProperties(fontName, fontColor, fontSize);
+	return this;
 };
 
 GAxis.prototype.getTicks = function() {
